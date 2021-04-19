@@ -4,6 +4,6 @@ class Account(object):
             self.name = name
             self.deposit = deposit
     x = int(input("계좌번호: "))
-    y = str(input("이름: "))
+    y =  input("이름: ")
     z = int(input("예금: "))
     DevAccount = Account(x,y,z)
