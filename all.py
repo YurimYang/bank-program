@@ -73,13 +73,12 @@ class Manage:
 
 if __name__=="__main__":
     Manage()
-    
 
 class System:
     def run():
         while True:
             print("=====Bank Menu=====")
-            print("1. 계좌개설", "2. 입금하기", "3. 출금하기", "4. 전체조회", "5. 종료하기", sep = '\n')
+            print("1. 계좌개설", "2. 입금하기", "3. 출금하기", "4. 전체조회", "5. 전체계좌삭제", "6. 종료하기", sep = '\n')
             print("===================")
             a = int(input())
 
@@ -100,10 +99,16 @@ class System:
             
             elif a == 4:
                 Manage().show()
-            
+
             elif a == 5:
+                del user[:]
+                print("모든 계좌가 삭제되었습니다.")
+
+            
+            elif a == 6:
                 break
 
         
 if __name__=="__main__":
    System.run()
+    
