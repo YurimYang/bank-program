@@ -21,7 +21,7 @@ class Account:
         #def set_Acc
         #    number = 
           #  name = input("이름: ")
-           # balance = input("예금: ")
+           # balance = input("예금: "
 
 
         def getnum(self):
