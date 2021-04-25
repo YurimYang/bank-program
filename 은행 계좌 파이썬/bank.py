@@ -62,7 +62,9 @@ class BankManager:
 class BankingSystem:
         a=BankManager()
         while True:
-            num=input(" ======== Bank Menu ========\n 1.계좌개설\n 2.입금하기\n 3.출금하기 \n 4.전체조회 \n 5.종료하기")
+            print("=====계좌개설=====")
+            print("1. 계좌개설\n2. 입금하기\n3. 출금하기\n4. 전체조회\n5. 종료하기\n=============")
+            num = int(input())
             print()
             if num=="1":
                 print("============================")                
