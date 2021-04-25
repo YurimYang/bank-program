@@ -31,6 +31,7 @@ class Account:
                 self.balance-= money
                 return self.balance
         
+        
         def inquiry(self):
             return self.balance
 
@@ -71,6 +72,11 @@ class Manage:
                 return "이미 존재합니다."
         user.append(xnumber)
 
+    def delete(self,number):
+           for i in user:
+                   if i.getnum()==number:
+                           del(self.number)
+
 if __name__=="__main__":
     Manage()
     
@@ -79,7 +85,7 @@ class System:
     def run():
         while True:
             print("=====Bank Menu=====")
-            print("1. 계좌개설", "2. 입금하기", "3. 출금하기", "4. 전체조회", "5. 종료하기", sep = '\n')
+            print("1. 계좌개설", "2. 입금하기", "3. 출금하기", "4. 전체조회", "5. 종료하기","6.삭제하기", sep = '\n')
             print("===================")
             a = int(input())
 
@@ -103,6 +109,8 @@ class System:
             
             elif a == 5:
                 break
+            elif a==6:
+                Manage().delete()
 
         
 if __name__=="__main__":
