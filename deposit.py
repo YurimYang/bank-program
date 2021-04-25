@@ -1,7 +1,12 @@
 user = []
 
-class Account(object):
-        def __init__(self, number, name, balance):
+class Account:
+        def __init__(self,number="", name="", balance=0):
+            if(number == ""):
+                self.number = input("계좌번호: ")
+                self.name = input("이름: ")
+                self.balance = input("예금: ")
+            else:
                 self.number = number
                 self.name = name
                 self.balance = balance
@@ -10,11 +15,13 @@ class Account(object):
                 print("계좌번호: ", self.number)
                 print("이름: ", self.name)
                 print("예금: ", self.balance)
-                
-        def set_Account():
-            number = input("계좌번호: ")
-            name = input("이름: ")
-            balance = input("예금: ")
+
+        #def dispaly(self):
+         #   return "self.number:self.name:self.balance\n"    
+        #def set_Acc
+        #    number = 
+          #  name = input("이름: ")
+           # balance = input("예금: ")
 
 
         def getnum(self):
@@ -35,7 +42,7 @@ class Account(object):
             return self.balance
 
 
-class Manage(object):
+class Manage:
 
     def deposit(self,number):
         for i in user:
@@ -43,6 +50,7 @@ class Manage(object):
                 print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", self.balance)
                 money = int(input("입금하실 금액을 입력해주세요: "))
                 plus = i.deposit(money)
+                print("잔액은 {0}입니다.".format(plus))
                 print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", plus)
                 return 0
         print("오류입니다.")
@@ -54,20 +62,24 @@ class Manage(object):
                 money = int(input("출금하실 금액을 입력해주세요: "))
                 minus = i.withdraw(money)
                 print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", minus)
+            print("오류입니다.")
                 
     def show(self):
         if len(user) != 0:
             for i in range(0,len(user)):
-                user[i].disp()
+                user[i].print_info()
         else:
             print("오류입니다.")
 
     
-    def newnum(self,number):
+    def newnum(self,xnumber):
         for i in user:
-            if i.getnum() == number.getnum():
+            if i.getnum() == xnumber.getnum():
                 return "이미 존재합니다."
-        user.append(number)
+        user.append(xnumber)
+
+if __name__=="__main__":
+    Manage()
     
 
 class System:
@@ -101,4 +113,4 @@ class System:
 
         
 if __name__=="__main__":
-    System.run()
+   System.run()
