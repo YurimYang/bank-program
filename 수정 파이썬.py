@@ -23,7 +23,7 @@ class Account:
         else:
             print(money,"원이 출금되었습니다.")
             self.__balance=self.__balance-money
-            print("현재 잔액 = ",self.__balance)
+            print("현재 잔액 : ",self.__balance)
 class Manage:
     def __init__(self):
         self.accountlist = []
@@ -31,7 +31,7 @@ class Manage:
         number = input("계좌번호 : ")
         if self.numbercheck(number):
             username=input("이름 : ")
-            usesrbalance = int(input("예금금액 : "))
+            userbalance = int(input("예금금액 : "))
             self.accountlist.append(Account(number,username,userbalance))
             print("##계좌 개설을 완료하였습니다##")
         else:
@@ -42,8 +42,9 @@ class Manage:
                 print("중복된 계좌번호가 존재합니다.")
                 return False
             return True
+        return True
     def deposit(self):
-        name=input("입금하실 계좌번호를 입력하세요: ")
+        number=input("입금하실 계좌번호를 입력하세요: ")
         for i in range(len(self.accountlist)):
             if self.accountlist[i].getnumber() == number:
                 print("계좌번호:",self.accountlist[i].getnumber(),"이름",self.accountlist[i].getname(),"잔액",self.accountlist[i].getbalance())
@@ -53,18 +54,18 @@ class Manage:
             else:
                 print("존재하지 않는 계좌번호입니다.")
     def withdraw(self):
-        name=input("계좌번호를 입력하세요 : ")
+        number=input("계좌번호를 입력하세요 : ")
         for i in range(len(self.accountlist)):
             if self.accountlist[i].getnumber() == number:
                 print("계좌번호:",self.accountlist[i].getnumber(),"이름",self.accountlist[i].getname(),"잔액",self.accountlist[i].getbalance())
-                self.accountlist[i].deposit(int(input("출금하실 금액을 입력해주세요 :")))
+                self.accountlist[i].withdraw(int(input("출금하실 금액을 입력해주세요 :")))
                 print("계좌번호:",self.accountlist[i].getnumber(),"이름",self.accountlist[i].getname(),"잔액",self.accountlist[i].getbalance())
                 break
             else:
                 print("존재하지 않는 계좌번호입니다.")
     def showAccount(self):
-        for i in range(self.accountlist):
-            print("계좌번호:",self.accountlist[i].getnumber(),"이름",self.accountlist[i].getname(),"잔액",self.accountlist[i].getbalance())
+        for i in range(len(self.accountlist)):
+            print("계좌번호:",self.accountlist[i].getnumber()),"이름",self.accountlist[i].getname(),"잔액",self.accountlist[i].getbalance()
 
 class System:
     a=Manage()
@@ -82,7 +83,7 @@ class System:
         elif num==5:
             print("      프로그램이 종료됩니다      ")
             break
-if __name == "__main__":
+if __name__ == "__main__":
     System()
             
         
