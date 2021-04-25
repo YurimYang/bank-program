@@ -3,9 +3,9 @@ user = []
 class Account:
         def __init__(self,number="", name="", balance=0):
             if(number == ""):
-                self.number = input("계좌번호: ")
+                self.number = int(input("계좌번호: "))
                 self.name = input("이름: ")
-                self.balance = input("예금: ")
+                self.balance = int(input("예금: "))
             else:
                 self.number = number
                 self.name = name
@@ -16,27 +16,20 @@ class Account:
                 print("이름: ", self.name)
                 print("예금: ", self.balance)
 
-        #def dispaly(self):
-         #   return "self.number:self.name:self.balance\n"    
-        #def set_Acc
-        #    number = 
-          #  name = input("이름: ")
-           # balance = input("예금: "
-
 
         def getnum(self):
             return self.number 
         
         def deposit(self,money):
             self.balance += money
-            return self.money
+            return self.balance
         
         def withdraw(self,money):
             if self.balance< money:
                 return 0
             else: 
                 self.balance-= money
-                return money
+                return self.balance
         
         def inquiry(self):
             return self.balance
@@ -47,21 +40,21 @@ class Manage:
     def deposit(self,number):
         for i in user:
             if i.getnum() == number:
-                print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", self.balance)
+                print("계좌번호: ", number, "/ 이름: ", i.name, "/ 잔액: ", i.balance)
                 money = int(input("입금하실 금액을 입력해주세요: "))
                 plus = i.deposit(money)
-                print("잔액은 {0}입니다.".format(plus))
-                print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", plus)
+                print("계좌번호: ", number, "/ 이름: ", i.name, "/ 잔액: ", plus)
                 return 0
         print("오류입니다.")
     
     def withdraw(self,number):
         for i in user:
             if i.getnum() == number:
-                print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", self.balance)
+                print("계좌번호: ", number, "/ 이름: ", i.name, "/ 잔액: ", i.balance)
                 money = int(input("출금하실 금액을 입력해주세요: "))
                 minus = i.withdraw(money)
-                print("계좌번호: ", self.number, "/ 이름: ", self.name, "/ 잔액: ", minus)
+                print("계좌번호: ", number, "/ 이름: ", i.name, "/ 잔액: ", minus)
+                return 0
             print("오류입니다.")
                 
     def show(self):
